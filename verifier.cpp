@@ -201,7 +201,7 @@ int verify_file(unsigned char* addr, size_t length) {
 
     bool need_sha1 = false;
     bool need_sha256 = false;
-    for (i = 0; i < numKeys; ++i) {
+    for (i = 0; i < (size_t)numKeys; ++i) {
         switch (pKeys[i].hash_len) {
             case SHA_DIGEST_SIZE: need_sha1 = true; break;
             case SHA256_DIGEST_SIZE: need_sha256 = true; break;
@@ -248,7 +248,7 @@ int verify_file(unsigned char* addr, size_t length) {
      * any key can match, we need to try each before determining a verification
      * failure has happened.
      */
-    for (i = 0; i < numKeys; ++i) {
+    for (i = 0; i < (size_t)numKeys; ++i) {
         const uint8_t* hash;
         switch (pKeys[i].hash_len) {
             case SHA_DIGEST_SIZE: hash = sha1; break;

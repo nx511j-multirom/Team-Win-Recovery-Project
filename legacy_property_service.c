@@ -36,6 +36,9 @@
 //#include <sys/atomics.h>
 #include "legacy_property_service.h"
 
+//setup UNUSED
+#define UNUSED(x) ( (void)(x) )
+
 static int persistent_properties_loaded = 0;
 static int property_area_inited = 0;
 
@@ -201,6 +204,7 @@ void legacy_get_property_workspace(int *fd, int *sz)
 
 static void copy_property_to_legacy(const char *key, const char *value, void *cookie)
 {
+    UNUSED(cookie);
     legacy_property_set(key, value);
 }
 
